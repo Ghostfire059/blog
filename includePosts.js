@@ -14,6 +14,7 @@ function include()
 
         if(category && post)
         {
+            element.classList.add("post");
             fetch(SERVER + POSTSFOLDER + category + SEPARATOR + post + EXTENSION)
                 .then(response => response.text())
                 .then((data) =>
