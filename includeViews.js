@@ -1,12 +1,14 @@
-const SERVER = "http://127.0.0.1:5500/";
-
 function include()
 {
+  const SERVER = "http://127.0.0.1:5500/";
+  const VIEWFOLDER = "views/";
+  const EXTENSION = ".html";
+
   const includes = document.querySelectorAll('[data-include-view]');
   includes.forEach(element =>
     {
       const includeName = element.getAttribute("data-include-view");
-      const file = 'views/' + includeName + '.html';
+      const file = VIEWFOLDER + includeName + EXTENSION;
       fetch(SERVER+file)
         .then(response => response.text())
         .then((data) =>
@@ -15,7 +17,7 @@ function include()
 
           if(includeName==="header")
           {
-            const actualPage = SERVER + element.parentElement.getElementsByClassName("categoryTitle")[0].innerText.toLowerCase().replace(/ /g, '') + ".html";
+            const actualPage = SERVER + element.parentElement.getElementsByClassName("categoryTitle")[0].innerText.toLowerCase().replace(/ /g, '') + EXTENSION;
             console.log(actualPage);
             if(actualPage!==SERVER+ 'homepage.html')
             {
