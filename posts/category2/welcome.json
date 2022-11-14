@@ -1,0 +1,9 @@
+{
+    "postTitle" : "Post1",
+    "postInfos" :
+    {
+        "date"  : "2022/11/07",
+        "author": "Tanguy BERASATEGUY"
+    },
+    "content"   : "This is the content of the first post of category 2"
+}
