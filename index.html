@@ -5,6 +5,7 @@
 		<title>	Blog TP1	</title>
 		<link href="blogCSS.css" rel="stylesheet">
 		<script src="includeViews.js" defer></script>
+		<script src="includePosts.js" defer></script>
 	</head>
 	
 	<body>	
@@ -16,17 +17,7 @@
 					<h2 class="categoryTitle">	Homepage	</h2>
 					
 					<div class="posts">
-						<section class="post">
-							<h3 class="postTitle">	Welcome	</h3>
-							
-							<ul class="postInfos">
-								<li class="date">	Date: 2022/11/07	</li>
-								<li class="auteur">	Auteur: Tanguy BERASATEGUY	</li>
-							</ul>
-							<p class="contenu">
-								Contenu
-							</p>
-						</section>
+						<div data-include-category="vrac" data-include-post="welcome"></div>
 					</div>
 				</section>
 			</div>
