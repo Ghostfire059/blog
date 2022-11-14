@@ -1,0 +1,345 @@
+:root
+{
+	/* Uses to defines var */
+		/* colors*/
+	--colorBackground: #121212;
+	--colorTransparent: #00000000;
+
+	--colorNear: #ffffff;
+	--colorMedium: #ffffff;
+	--colorFar: #ffffff;
+
+	--colorPrimary-100: #fcfdc0;
+	--colorPrimary-200: #f9fa93;
+	--colorPrimary-300: #f5f662;
+	--colorPrimary-400: #f0f234;
+	--colorPrimary: #ffff00;
+	--colorPrimary-600: #ffeb00;
+	--colorPrimary-700: #ffd100;
+	--colorPrimary-800: #ffb700;
+	--colorPrimary-900: #ff8a00;
+
+	--colorSecondary-100: #ccffbe;
+	--colorSecondary-200: #a3ff90;
+	--colorSecondary-300: #6cff57;
+	--colorSecondary: #00ff00;
+	--colorSecondary-500: #00fc00;
+	--colorSecondary-600: #00ea00;
+	--colorSecondary-700: #00d300;
+	--colorSecondary-800: #00be00;
+	--colorSecondary-900: #009900;
+
+	--colorTertiary-100: #9afffd;
+	--colorTertiary: #00ffff;
+	--colorTertiary-300: #00fbff;
+	--colorTertiary-400: #00f5fe;
+	--colorTertiary-500: #00f0ff;
+	--colorTertiary-600: #00deeb;
+	--colorTertiary-700: #00c7ce;
+	--colorTertiary-800: #00b1b4;
+	--colorTertiary-900: #008c82;
+
+	--actualPage: "Homepage";
+}
+
+body
+{
+	background-color: var(--colorBackground);
+	color: var(--colorPrimary-100);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+a
+{
+	text-decoration: none;
+	color: var(--colorPrimary-100);
+}
+
+header
+{
+	position: sticky;
+	flex-grow: 1;
+	display: flex;
+	user-select: none;
+	/* Used to create the "neon" bars */
+	box-shadow:
+		0px 5px 5px -15px var(--colorPrimary-900),
+		0px 10px 7px -15px var(--colorPrimary),
+		0px 10px 8px -15px var(--colorPrimary),
+		0px 15px 10px -15px var(--colorPrimary-900);
+}
+
+header div.navBarTitle
+{
+	display: flex;
+	font-style: italic;
+	flex-grow: 9;
+
+	/* Used to change color parameters*/
+	--colorNear: var(--colorPrimary-100);
+	--colorMedium: var(--colorPrimary);
+	--colorFar: var(--colorPrimary-900);
+	
+	animation: flicker 3s infinite alternate;
+	cursor: default;
+}
+
+@keyframes flicker
+{
+	0%, 18%, 22%, 25%, 53%, 57%, 100%
+	{
+		text-shadow:
+		0 0 4px var(--colorNear),
+		0 0 10px var(--colorMedium),
+		0 0 20px var(--colorMedium),
+		0 0 30px var(--colorFar),
+		0 0 30px var(--colorFar),
+		0 0 50px var(--colorFar);
+	}
+
+	20%, 24%, 55%
+	{
+		text-shadow: none;
+	}
+}
+
+header nav
+{
+	display: flex;
+	flex-grow: 1;
+	align-items: center;
+	justify-content: space-around;
+	gap: 15px;
+	margin-bottom: 5px;
+}
+
+header nav ul
+{
+	display: flex;
+	align-items: center;
+	list-style: none;
+	--colorNear: var(--colorSecondary-100);
+	--colorMedium: var(--colorSecondary);
+	--colorFar : var(--colorSecondary-900);
+	gap: 20px;
+} 
+
+header nav ul li.navBarButton
+{
+	display: inline-block;
+	position: relative;
+	max-width: 150px;
+	padding: 16px;
+	flex-grow: 1;
+	cursor: pointer;
+	border: none;
+	
+	background-color: var(--colorTransparent);
+	color: var(--colorPrimary-100);
+	/* Used to change color parameters*/
+	--colorNear: var(--colorSecondary-100);
+	--colorMedium: var(--colorSecondary);
+	--colorFar: var(--colorSecondary-900);
+	cursor: default;
+}
+
+header nav ul li.navBarButton div.box
+{
+	position: absolute;
+	margin: -15px;
+	width: 100%;
+	height: 100%;
+}
+
+header nav ul li.navBarButton:not(.activePage):hover div.box
+{
+	width: 120%;
+	height: 120%;
+	transform: translate(-10%, -10%);
+	z-index: -1;
+}
+
+@keyframes gradientPrimarySecondaryTertiary
+{
+	0%, 100% {	background: linear-gradient(45deg, var(--colorPrimary), var(--colorPrimary-100), var(--colorSecondary-100), var(--colorSecondary), var(--colorSecondary-100), var(--colorTertiary-100), var(--colorTertiary), var(--colorTertiary-100), var(--colorPrimary-100), var(--colorPrimary));	}
+	10% {	background: linear-gradient(45deg, var(--colorPrimary-100), var(--colorSecondary-100), var(--colorSecondary), var(--colorSecondary-100), var(--colorTertiary-100), var(--colorTertiary), var(--colorTertiary-100), var(--colorPrimary-100), var(--colorPrimary), var(--colorPrimary));	}
+	20% {	background: linear-gradient(45deg, var(--colorSecondary-100), var(--colorSecondary), var(--colorSecondary-100), var(--colorTertiary-100), var(--colorTertiary), var(--colorTertiary-100), var(--colorPrimary-100), var(--colorPrimary), var(--colorPrimary), var(--colorPrimary-100));	}
+	30% {	background: linear-gradient(45deg, var(--colorSecondary), var(--colorSecondary-100), var(--colorTertiary-100), var(--colorTertiary), var(--colorTertiary-100), var(--colorPrimary-100), var(--colorPrimary), var(--colorPrimary), var(--colorPrimary-100), var(--colorSecondary-100));	}
+	40% {	background: linear-gradient(45deg, var(--colorSecondary-100), var(--colorTertiary-100), var(--colorTertiary), var(--colorTertiary-100), var(--colorPrimary-100), var(--colorPrimary), var(--colorPrimary), var(--colorPrimary-100), var(--colorSecondary-100), var(--colorSecondary));	}
+	50% {	background: linear-gradient(45deg, var(--colorTertiary-100), var(--colorTertiary), var(--colorTertiary-100), var(--colorPrimary-100), var(--colorPrimary), var(--colorPrimary), var(--colorPrimary-100), var(--colorSecondary-100), var(--colorSecondary), var(--colorSecondary-100));	}
+	60% {	background: linear-gradient(45deg, var(--colorTertiary), var(--colorTertiary-100), var(--colorPrimary-100), var(--colorPrimary), var(--colorPrimary), var(--colorPrimary-100), var(--colorSecondary-100), var(--colorSecondary), var(--colorSecondary-100), var(--colorTertiary-100));	}
+	70% {	background: linear-gradient(45deg, var(--colorTertiary-100), var(--colorPrimary-100), var(--colorPrimary), var(--colorPrimary), var(--colorPrimary-100), var(--colorSecondary-100), var(--colorSecondary), var(--colorSecondary-100), var(--colorTertiary-100), var(--colorTertiary));	}
+	80% {	background: linear-gradient(45deg, var(--colorPrimary-100), var(--colorPrimary), var(--colorPrimary), var(--colorPrimary-100), var(--colorSecondary-100), var(--colorSecondary), var(--colorSecondary-100), var(--colorTertiary-100), var(--colorTertiary), var(--colorTertiary-100));	}
+	90% {	background: linear-gradient(45deg, var(--colorPrimary), var(--colorPrimary), var(--colorPrimary-100), var(--colorSecondary-100), var(--colorSecondary), var(--colorSecondary-100), var(--colorTertiary-100), var(--colorTertiary), var(--colorTertiary-100), var(--colorPrimary-100));	}
+}
+
+header nav ul li.navBarButton:not(.activePage)
+{
+	transition: 0.5s ease;
+}
+
+header nav ul li.navBarButton:not(.activePage):hover
+{
+	font-size: 20px;
+	background-color: var(--colorBackground);
+	box-shadow: 0 0 5px 1px var(--colorSecondary-100);
+	animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate
+{
+	0%, 100%	{	border-radius: 50% 65% 80% 95%;	}
+	25%	{	border-radius: 95% 50% 65% 80%;	}
+	50%	{	border-radius: 80% 95% 50% 65%;	}
+	75%	{	border-radius: 65% 80% 95% 50%;	}
+}
+
+header nav ul li.navBarButton:not(.activePage) a:active
+{
+	background-color: var(--colorBackground);
+	animation: shadowText 0.1s linear 1;
+}
+
+@keyframes shadowText
+{
+	/* "Activation" animation */
+	0%	{	text-shadow: 0 0 1px var(--colorNear);	}
+	20%	{	text-shadow: 0 0 5px var(--colorNear);	}
+	40%	{	text-shadow: 0 0 10px var(--colorMedium);	}
+	60%	{	text-shadow: 0 0 15px var(--colorMedium);	}
+	80%	{	text-shadow: 0 0 20px var(--colorFar);	}
+	100%	{	text-shadow: 0 0 20px var(--colorFar);	}
+}
+
+header nav ul li.activePage
+{
+	transform: translateY(-10px);
+	font-size: 20px;
+	pointer-events: none;
+	color: var(--colorSecondary-100);
+}
+
+header nav ul li.activePage div.box
+{
+	animation: gradientPrimarySecondaryTertiary 0.5s linear infinite;
+	filter: blur(20px);
+}
+
+
+@keyframes rgb
+{
+	/* RGB carroussel animation */
+	0%, 100%	{	background: linear-gradient(45deg, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000);	}
+	16%	{	background: linear-gradient(45deg, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000, #ffff00);	}
+	33%	{	background: linear-gradient(45deg, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000, #ffff00, #00ff00);	}
+	50%	{	background: linear-gradient(45deg, #00ffff, #0000ff, #ff00ff, #ff0000, #ffff00, #00ff00, #00ffff);	}
+	66%	{	background: linear-gradient(45deg, #0000ff, #ff00ff, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff);	}
+	83%	{	background: linear-gradient(45deg, #ff00ff, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff);	}
+}
+
+.shadow
+{
+	text-shadow:
+		0 0 5px var(--colorNear),
+		0 0 6px var(--colorFar),
+   		0 0 7px var(--colorFar),
+   		0 0 8px var(--colorFar);
+}
+
+.blog
+{
+	flex-grow: 8;
+	/* Used to create the "neon" bars */
+	box-shadow:
+		0px -5px 5px -15px var(--colorPrimary-900),
+		0px -10px 8px -15px var(--colorPrimary),
+		0px -10px 7px -15px var(--colorPrimary),
+		0px -15px 10px -15px var(--colorPrimary-900),
+		0px 5px 5px -15px var(--colorPrimary-900),
+		0px 10px 8px -15px var(--colorPrimary),
+		0px 10px 7px -15px var(--colorPrimary),
+		0px 15px 10px -15px var(--colorPrimary-900);
+
+	/* Used to change color parameters*/
+	color: var(--colorPrimary-100);
+	--colorNear: var(--colorPrimary);
+	--colorFar: var(--colorPrimary-900);
+}
+
+
+.posts
+{
+	display: flex;
+	flex-direction: row;
+}
+
+.postInfos
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+
+.categories
+{
+	display: flex;
+	flex-direction: row;
+	align-content: stretch;
+}
+
+.category
+{
+	flex-grow: 1;
+}
+
+.post
+{
+	flex-grow: 1;
+}
+
+.infoBar
+{
+	flex-grow: 1;
+	display: flex;
+	/* Used to create the "neon" bars */
+	box-shadow:
+		0px -5px 5px -15px var(--colorPrimary-900),
+		0px -10px 7px -15px var(--colorPrimary),
+		0px -10px 8px -15px var(--colorPrimary),
+		0px -15px 10px -15px var(--colorPrimary-900);
+
+	/* Used to change color parameters*/
+	color: var(--colorTertiary-100);
+	--colorNear: var(--colorTertiary);
+	--colorFar: var(--colorTertiary-900);
+}
+
+.marqueeContainer
+{
+	display: flex;
+	align-items: center;
+	background: var(--colorTransparent);
+	overflow: hidden;
+}
+
+.marquee
+{
+	font-size: 25px;
+	line-height: 1.3;
+	padding: 24px 0;
+	white-space: nowrap;
+	animation: marquee 30s infinite linear;
+}
+
+@keyframes marquee
+{
+	from	{	transform: translateX(0);	}
+	to	{	transform: translateX(-50%);	}
+}
+
+.marquee::after
+{
+	content: "BREAKING NEWS: THIS SITE HELPS ME TO IMPROVE MY HTML/CSS/JS SKILLS | BREAKING NEWS: THIS SITE HELPS ME TO IMPROVE MY HTML/CSS/JS SKILLS |";
+}
