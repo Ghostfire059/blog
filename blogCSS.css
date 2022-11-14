@@ -285,7 +285,7 @@ main.blog div.categories
 	align-content: stretch;
 }
 
-main.blog div.categories div.category
+main.blog div.categories section.category
 {
 	flex-grow: 1;
 }
@@ -294,14 +294,15 @@ main.blog div.posts
 {
 	display: flex;
 	flex-direction: row;
+	width: 100%;
 }
 
-main.blog div.posts div.post
+main.blog div.posts section.post
 {
 	flex-grow: 1;
 }
 
-main.blog div.posts div.post ul.postInfos
+main.blog div.posts section.post ul.postInfos
 {
 	display: flex;
 	flex-direction: row;
